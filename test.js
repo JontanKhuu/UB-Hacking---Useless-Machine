@@ -1,5 +1,5 @@
-
-export default class Test{
+import Lever from "./lever.js"
+export default class Mouse{
     constructor(canvas){
         this.canvas = canvas
         function getMousePos(canvas, evt) {
@@ -12,10 +12,18 @@ export default class Test{
         canvas.addEventListener('click', function(evt) {
             event.preventDefault();
             var mousePos = getMousePos(canvas, evt);
-            console.log('Mouse position: ' + mousePos.x + ',' + mousePos.y);
+            printMousePosition(mousePos.x, mousePos.y)
         }, false);
         canvas.addEventListener('contextmenu',event => {
             event.preventDefault();
         })
+        function printMousePosition(x,y){
+            console.log(x, y)
+        }
+        function checkOnLever(x,y){
+            //get lever positions
+            //check if clicked on positions
+            //call clickedLever function from leverClass
+        }
     }  
 }
