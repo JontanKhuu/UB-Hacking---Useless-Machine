@@ -12,7 +12,6 @@ export default class Mouse{
             };
         }
         canvas.addEventListener('click', function(evt) {
-            event.preventDefault();
             var mousePos = getMousePos(canvas, evt);
             printMousePosition(mousePos.x, mousePos.y)
             checkOnLever(mousePos.x, mousePos.y)
