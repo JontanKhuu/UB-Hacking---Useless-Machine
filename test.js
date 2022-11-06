@@ -1,4 +1,3 @@
-import Lever from "./lever.js"
 export default class Mouse{
     constructor(canvas){
         this.canvas = canvas

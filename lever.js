@@ -1,22 +1,19 @@
 const canvas = document.getElementById("screen");
 const context = canvas.getContext('2d')
 
-const img1 = new Image();
-img1.src = "frames/LeverDown.png";
-
-
-const img2 = new Image();
-img2.src = "frames/LeverUp.png";
-
 const frameSheet = new Image();
-frameSheet = "frames/Frame Sheet.png";
-const boxSize = 800
+frameSheet.src = "frames/Frame Sheet.png";
+
 
 export default class Lever{
-    constructor(balls){
+    constructor(){
         this.leverActive = false;
-        let gameFrame = 0;
-        const stagFrame = 70;
+        this.gameFrame = 0;
+        this.stagFrame = 30;
+        this.frameX = 0;
+        this.frameY = 0;
+        this.sprite = 800; 
+        
     }
     leverClicked(){
         console.log("Inside leverClicked")
@@ -24,15 +21,28 @@ export default class Lever{
     }
   
     draw() {
-        console.log("Lever is current Active: " + this.leverActive)
-        if (this.leverActive == true) {
-            context.drawImage(img2,0,0)
+        console.log("Lever is currently Active: " + this.leverActive)
+        if (this.leverActive) {
+        if (this.gameFrame % this.stagFrame == 0) {
+            this.frameX++;
+            if (this.frameX > 4) {
+                this.frameX = 0;
+                this.frameY++;
+                if (this.frameY > 2) {
+                    this.frameY = 0;
+                    this.leverActive = false;
+                }
+            }
+          
         }
-        else {
-            context.drawImage(img1, 0,0);
-        }
+             context.drawImage(frameSheet, this.frameX * this.sprite, this.frameY * this.sprite, this.sprite, this.sprite, 0, 0, 800, 800);
+                this.gameFrame++;
+       
+        
     }
-
+        
+}
+        
 }
 
 
@@ -42,4 +52,3 @@ export default class Lever{
 
 
 
-    

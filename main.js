@@ -1,24 +1,25 @@
-// import mouseControl from './MouseControl.js';
 import Lever from "./lever.js";
-import Test from "./test.js";
+import Mouse from "./mouse.js";
 const canvas = document.getElementById("screen");
-const context = canvas.getContext('2d')
+const context = canvas.getContext('2d');    
+const frameSheet = new Image();
+frameSheet.src = "frames/Frame Sheet.png";
+
 
 var gameLoop;
 
 window.onload = function() {
-    
-    this.lever = new Lever(100,100, canvas);
+    context.drawImage(frameSheet, 0, 0);
+    this.lever = new Lever();
     console.log("before draw")
-    gameLoop = setInterval(draw, 100/1000);
-    
+    gameLoop = setInterval(draw, 1000/1000);
+    this.mouse = new Mouse(canvas);
 }
 
 function draw() {
-    context.fillStyle = "black";
-    context.fillRect(0,0,canvas.width,canvas.height);
+    
     this.lever.draw();
-    this.test = new Test(canvas)
+    // this.test = new Test(canvas)
     // console.log(test.getPosition())
 
     
