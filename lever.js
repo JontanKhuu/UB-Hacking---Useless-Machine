@@ -46,9 +46,4 @@ export default class Lever{
 }
 
 
-/* lever down -> lever up -> 5 sec delay -> open frame 1-3 -> fully open ->
-   movement 1-3 -> close 1-5 -> lever down  */
-
-
-
 
