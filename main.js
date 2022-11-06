@@ -19,10 +19,6 @@ window.onload = function() {
 function draw() {
     
     this.lever.draw();
-    // this.test = new Test(canvas)
-    // console.log(test.getPosition())
-
-    
 }
 
 
